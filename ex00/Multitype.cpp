@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:40 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/26 17:40:50 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/26 17:41:50 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,22 +61,6 @@ Multitype::Multitype(Multitype const & src) {
 
 Multitype::~Multitype(void) {
 	return;
-}
-
-char					Multitype::getChar(void) {
-	return (_c);
-}
-
-int						Multitype::getInt(void) {
-	return (_i);
-}
-
-float					Multitype::getFloat(void) {
-	return (_f);
-}
-
-double					Multitype::getDouble(void) {
-	return (_d);
 }
 
 void					Multitype::_fromChar(std::string in) {
@@ -198,7 +182,7 @@ void					Multitype::output(void) {
 }
 
 
-Multitype &					Multitype::operator=(Multitype const & rhs) {
+Multitype &				Multitype::operator=(Multitype const & rhs) {
 	for (int i = 0; i < 4; i++)
 		_valid[i] =rhs._valid[i];
 	_c = rhs._c;

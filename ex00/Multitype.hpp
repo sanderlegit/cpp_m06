@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:42 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/26 17:39:05 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/26 17:41:11 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,6 @@ class Multitype {
 		Multitype(std::string str);
 		Multitype(Multitype const & src);
 		~Multitype(void);
-
-		char					getChar(void);
-		int						getInt(void);
-		float					getFloat(void);
-		double					getDouble(void);
 
 		void					output(void);
 
