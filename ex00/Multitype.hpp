@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:42 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/26 17:41:11 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/26 17:51:58 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Multitype {
 		float					_f;
 		double					_d;
 		int						_prec;
+		int						_special;
 
 		void					_fromChar(std::string in);
 		void					_fromInt(std::string in);

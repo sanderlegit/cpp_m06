@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:40 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/26 17:41:50 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/26 17:56:36 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,22 @@ Multitype::Multitype(void) {
 	_f = 0.0f;
 	_d = 0.0;
 	_prec = 1;
+	_special = 0;
 	return;
 }
 
 Multitype::Multitype(std::string str) {//No -inf, +inf, nan
+	const char		*specialF[3] = {"nanf", "+inff", "-inff"};
+	const char		*specialD[3] = {"nan", "+inf", "-inf"};
+
 	for (int i = 0; i < 4; i++)
 		_valid[i] = 0;
 	_prec = 1;
+
+	_special = 0;
+	for (int i = 0; i < 3; i++)
+		if (str.compare(specialD[i]) == 0 || str.compare(specialF[i]) == 0)
+			_special = i + 1;
 
 	if (str.length() > 2 && str[0] == '\'' && str[2] == '\'') {
 		_fromChar(str);
@@ -49,7 +58,8 @@ Multitype::Multitype(std::string str) {//No -inf, +inf, nan
 				return;
 			}
 		}
-		std::cout << "Invalid entry" << std::endl << std::endl;
+		if (!_special)
+			std::cout << "Invalid entry" << std::endl << std::endl;
 	}
 }
 
@@ -98,7 +108,7 @@ void					Multitype::_fromInt(std::string in) {
 	return ;
 }
 
-void					Multitype::_fromFloat(std::string in) {//no overflow check
+void					Multitype::_fromFloat(std::string in) {
 	std::istringstream	str(in);
 	double				tmp;
 
@@ -124,7 +134,7 @@ void					Multitype::_fromFloat(std::string in) {//no overflow check
 	return ;
 }
 
-void					Multitype::_fromDouble(std::string in) {//no overflow check
+void					Multitype::_fromDouble(std::string in) {
 	std::istringstream	str(in);
 	long double			tmp;
 
@@ -153,6 +163,16 @@ void					Multitype::_fromDouble(std::string in) {//no overflow check
 }
 
 void					Multitype::output(void) {
+	const char		*specialF[3] = {"nanf", "+inff", "-inff"};
+	const char		*specialD[3] = {"nan", "+inf", "-inf"};
+	if (_special) {
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << specialF[_special - 1] << std::endl;
+		std::cout << "double: " << specialD[_special - 1] << std::endl;
+		return;
+	}
+
 	std::cout << "char: ";
 	if (_valid[0])
 		if (isprint(_c))
