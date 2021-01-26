@@ -1,0 +1,4 @@
+*.o
+a.out
+scalar_converter
+.ccls
