@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:42 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/26 16:40:51 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/26 17:39:05 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 # include <string>
 # include <sstream>
 # include <iostream>
-# include <ctype.h>
-# include <iomanip>
+# include <iomanip>		//set fixed/precision
+# include <limits>		//limits
+# include <cmath>		//nan, +inf, -inf
 
 class Multitype {
 	public:
