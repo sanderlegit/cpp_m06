@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:40 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/26 17:56:36 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/26 17:58:53 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ Multitype::Multitype(std::string str) {//No -inf, +inf, nan
 				return;
 			}
 		}
-		if (!_special)
-			std::cout << "Invalid entry" << std::endl << std::endl;
+		//if (!_special)
+			//std::cout << "Invalid entry" << std::endl << std::endl;
 	}
 }
 
@@ -74,7 +74,7 @@ Multitype::~Multitype(void) {
 }
 
 void					Multitype::_fromChar(std::string in) {
-	std::cout << "from char" << std::endl << std::endl;
+	//std::cout << "from char" << std::endl << std::endl;
 	_c = in[1];
 	_valid[0] = 1;
 
@@ -90,7 +90,7 @@ void					Multitype::_fromChar(std::string in) {
 void					Multitype::_fromInt(std::string in) {
 	std::istringstream	str(in);
 
-	std::cout << "from int" << std::endl << std::endl;
+	//std::cout << "from int" << std::endl << std::endl;
 	str >> _i;
 	if (!str.fail())
 		_valid[1] = 1;
@@ -112,7 +112,7 @@ void					Multitype::_fromFloat(std::string in) {
 	std::istringstream	str(in);
 	double				tmp;
 
-	std::cout << "from float" << std::endl << std::endl;
+	//std::cout << "from float" << std::endl << std::endl;
 	str >> tmp;
 	if (tmp >= (std::numeric_limits<float>::max() * -1) && tmp <= std::numeric_limits<float>::max())
 		_valid[2] = 1;
@@ -138,7 +138,7 @@ void					Multitype::_fromDouble(std::string in) {
 	std::istringstream	str(in);
 	long double			tmp;
 
-	std::cout << "from double" << std::endl << std::endl;
+	//std::cout << "from double" << std::endl << std::endl;
 	str >> tmp;
 	if (tmp >= (std::numeric_limits<double>::max() * -1) && tmp <= std::numeric_limits<double>::max())
 		_valid[3] = 1;
