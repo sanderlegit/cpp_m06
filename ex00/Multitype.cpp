@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:40 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/26 17:58:53 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/27 13:13:12 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Multitype::Multitype(void) {
 	return;
 }
 
-Multitype::Multitype(std::string str) {//No -inf, +inf, nan
+Multitype::Multitype(std::string str) {
 	const char		*specialF[3] = {"nanf", "+inff", "-inff"};
 	const char		*specialD[3] = {"nan", "+inf", "-inf"};
 
@@ -46,8 +46,6 @@ Multitype::Multitype(std::string str) {//No -inf, +inf, nan
 			_fromDouble(str);
 	} else {
 		int		i = 0;
-		while (iswspace(str[i]))
-			i++;
 		if (str[i] == '-')
 			i++;
 		for (; i < static_cast<int>(str.length()); i++) {
