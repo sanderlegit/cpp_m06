@@ -6,7 +6,7 @@
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/27 13:15:20 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/27 17:42:04 by averheij      ########   odam.nl         */
+/*   Updated: 2021/01/28 14:27:52 by averheij      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,9 @@ void			*serialize(void) {
 
 	std::cout << std::endl << "serializing..." << std::endl;
 	serial = do_serialization(s1, s2, n);
+
+	delete s1;
+	delete s2;
 
 	return serial;
 }
