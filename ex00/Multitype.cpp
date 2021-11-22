@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Multitype.cpp                                      :+:    :+:            */
+/*   Multitype.cpp                                     e8'   8   '8e          */
 /*                                                     +:+                    */
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/26 14:36:40 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/27 13:13:12 by averheij      ########   odam.nl         */
+/*   Updated: 2021/11/22 15:39:35 by dries               **ee8ee**            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Multitype::Multitype(std::string str) {
 		_fromChar(str);
 	} else if (str.find('.') != std::string::npos) {
 		if (str.find('f') != std::string::npos)
-			_fromFloat(str);
+			_fromFloat(str.substr(0, str.length() - 1));
 		else
 			_fromDouble(str);
 	} else {
@@ -72,7 +72,7 @@ Multitype::~Multitype(void) {
 }
 
 void					Multitype::_fromChar(std::string in) {
-	//std::cout << "from char" << std::endl << std::endl;
+	/* std::cout << "from char" << std::endl << std::endl; */
 	_c = in[1];
 	_valid[0] = 1;
 
@@ -110,7 +110,7 @@ void					Multitype::_fromFloat(std::string in) {
 	std::istringstream	str(in);
 	double				tmp;
 
-	//std::cout << "from float" << std::endl << std::endl;
+	/* std::cout << "from float" << std::endl << std::endl; */
 	str >> tmp;
 	if (tmp >= (std::numeric_limits<float>::max() * -1) && tmp <= std::numeric_limits<float>::max())
 		_valid[2] = 1;
