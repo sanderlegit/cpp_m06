@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   serialize.cpp                                      :+:    :+:            */
+/*   serialize.cpp                                     e8'   8   '8e          */
 /*                                                     +:+                    */
 /*   By: averheij <averheij@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/01/27 13:15:20 by averheij      #+#    #+#                 */
-/*   Updated: 2021/01/28 14:27:52 by averheij      ########   odam.nl         */
+/*   Updated: 2021/11/22 15:50:09 by dries               **ee8ee**            */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,6 @@ std::string		*rand_string(int length) {
 		}
 	}
 	return str;
-}
-
-int				rand_int(void) {
-	int				n;
-	char			*tmp = reinterpret_cast<char *>(&n);
-
-	for (int i = 0; i < 8; i++) {
-		*(tmp + i) = (rand() % 255) - 127;
-	}
-	return (n);
 }
 
 void			*do_serialization(std::string *s1, std::string *s2, int n) {
@@ -76,7 +66,7 @@ void			*serialize(void) {
 	std::cout << std::endl << "generating random values..." << std::endl;
 	s1 = rand_string(8);
 	s2 = rand_string(8);
-	n = rand_int();
+	n = rand() % INT_MAX;
 	std::cout << "s1: " << *s1 << std::endl;
 	std::cout << "n: " << n << std::endl;
 	std::cout << "s2: " <<  *s2 << std::endl;
